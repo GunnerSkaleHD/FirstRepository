@@ -1,0 +1,2 @@
+# NewProject
+A JavaScript project
