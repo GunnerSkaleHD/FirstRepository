@@ -1,11 +1,23 @@
-'use strict';
+import getData from "./fetchingData";
 
-function counter() {
-  let seconds = 0;
-  setInterval(() => {
-    seconds += 1;
-    document.getElementById('app').innerHTML = `<p>You have been here for ${seconds} seconds.</p>`;
-  }, 1000);
+
+function ajax(url) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      resolve(this.responseText);
+    };
+    xhr.onerror = reject;
+    xhr.open('GET', url);
+    xhr.send();
+  });
 }
 
-counter();
+ajax("https://thronesapi.com/api/v2/Characters")
+  .then(function(result) {
+    console.log(result);
+    console.log(typeof result); 
+  })
+  .catch(function() {
+    
+  });
