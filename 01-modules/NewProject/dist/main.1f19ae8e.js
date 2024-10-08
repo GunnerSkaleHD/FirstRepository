@@ -173,15 +173,6 @@ var _default = exports.default = getData;
 var _fetchingData = _interopRequireDefault(require("./fetchingData"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-//async function SortingOut(y) {
-//  getData().then(x => {
-//    const result = []
-//    result.push(x)
-//  }
-//  )
-//}
-//console.log(SortingOut(2))
-
 function ajax(url) {
   return new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
