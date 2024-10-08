@@ -1,21 +1,18 @@
 
-async function getData() {
-  const url = "https://thronesapi.com/api/v2/Characters";
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const json = await response.json();
-    return(json);
-  } catch (error) {
-    console.error(error.message);
-  }
+function ajax(url) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      resolve(this.responseText);
+    };
+    xhr.onerror = reject;
+    xhr.open('GET', url);
+    xhr.send();
+  });
 }
 
 
-export default getData
+export default ajax
 
 
 
