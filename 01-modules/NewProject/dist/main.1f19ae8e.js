@@ -141,11 +141,11 @@ var _default = exports.default = ajax;
 
 var _fetchingData = _interopRequireDefault(require("./fetchingData"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 (0, _fetchingData.default)("https://thronesapi.com/api/v2/Characters").then(function (result) {
-  console.log(result);
-  console.log(_typeof(result));
-}).catch(function () {});
+  //console.log(result);
+  var obj = JSON.parse(result);
+  //console.log(obj);
+});
 },{"./fetchingData":"fetchingData.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -171,7 +171,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50212" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55798" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
