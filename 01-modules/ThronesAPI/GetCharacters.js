@@ -15,6 +15,8 @@ async function getData(times){
         
         if (times == null){
             times = 3
+        } else if (times > 53){
+            times = 3
         };
         let IDarray = []
         let Namearray = []

@@ -2,6 +2,10 @@ import getData from "./GetCharacters.js";
 
 async function Print(num){
     const result = await getData(num);
-    console.log(result);
+    console.log("\n")
+    for (let i of result){
+        console.log(i + "\n")
+    };
+    //console.log(result.length);
 };
-Print()
+Print(5)
