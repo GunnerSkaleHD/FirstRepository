@@ -11,33 +11,30 @@ async function getData(){
         const json = await response.json()
         //console.log(json);
         //console.log(typeof json);
-        const times = 3
+        let times = 3
         let array = []
-        console.log("Three random Characters:");
+        console.log(".");
+        console.log("..");
         console.log("...");
+        console.log("....");
+        console.log("Three random Characters:");
+        
         
         for (let i = 0; i < times; i++) {
             id = Math.floor(Math.random() * 53);
             if (id in array){
+                times = times + 1
                 continue
             };
             console.log(json[id].fullName);
             array.push(id);
-            //console.log(array);
+           
         };
+        console.log("....");
         console.log("...");
-        
-        
-        
-        
-        /*
-        for (i in obj){
-            if (obj[id] === 0){
-                console.log(obj[firstName])
-            }
-        }
-        */
-    }
+        console.log("..");
+        console.log(".");
+       
     catch(error){
         console.error(error.message);
     }
