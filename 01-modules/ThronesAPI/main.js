@@ -13,13 +13,12 @@ async function getData(){
         //console.log(typeof json);
         let times = 3
         let array = []
+        console.log("Three random Characters:");
         console.log(".");
         console.log("..");
         console.log("...");
         console.log("....");
-        console.log("Three random Characters:");
-        
-        
+
         for (let i = 0; i < times; i++) {
             id = Math.floor(Math.random() * 53);
             if (id in array){
@@ -34,7 +33,7 @@ async function getData(){
         console.log("...");
         console.log("..");
         console.log(".");
-       
+    }   
     catch(error){
         console.error(error.message);
     }
