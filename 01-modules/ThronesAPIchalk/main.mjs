@@ -26,15 +26,7 @@ async function Print(times){
         let h = Math.abs(e);
         let j = Math.abs(f);
         
-        /*
-        console.log(g);
-        console.log(h);
-        console.log(j);
-
-        console.log(a);
-        console.log(b);
-        console.log(c);
-        */
+ 
     
         console.log(chalk.bgRgb(a, b, c)(i + "\n"));
     
@@ -43,8 +35,7 @@ async function Print(times){
     };
     
     
-    
-    //console.log(result.length);
+
 };
 
 

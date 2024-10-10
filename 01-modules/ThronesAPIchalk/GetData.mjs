@@ -7,9 +7,6 @@ async function getData(times){
             throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json()
-        //console.log(json);
-        //console.log(typeof json);
-            
         
         if (times == null){
             times = 3
@@ -18,33 +15,19 @@ async function getData(times){
         };
         let IDarray = []
         let Namearray = []
-        /*
-        console.log("Three random Characters:");
-        console.log(".");
-        console.log("..");
-        console.log("...");
-        console.log("....");
-        */
+
         for (let i = 0; i < times; i++) {
             const id = Math.floor(Math.random() * 53);
             if (IDarray.includes(id)){
                 times = times + 1
                 continue
             };
-            //console.log(json[id].fullName);
             Namearray.push(json[id].fullName);
 
             IDarray.push(id);
            
         };
-        /*
-        console.log(Namearray);
-        console.log("....");
-        console.log("...");
-        console.log("..");
-        console.log(".");
-        */
-        //console.log(Namearray)
+
         return Namearray;
         
     }   
