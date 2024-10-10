@@ -51,5 +51,18 @@ function getData() {
     });
 }
 ;
-var Whatever = getData();
-console.log(Whatever);
+function print() {
+    return __awaiter(this, void 0, void 0, function () {
+        var Whatever;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, getData()];
+                case 1:
+                    Whatever = _a.sent();
+                    console.log(Whatever);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+print();

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@types/es6-promise": "^0.0.33"
+  }
+}

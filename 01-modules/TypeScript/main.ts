@@ -4,5 +4,9 @@ async function getData(): Promise<any>{
     return result;
 };
 
-let Whatever = getData()
-console.log(Whatever)
+
+async function print(){
+    let Whatever = await getData()
+    console.log(Whatever)
+}
+print()
