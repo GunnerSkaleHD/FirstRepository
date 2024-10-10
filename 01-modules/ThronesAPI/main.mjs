@@ -1,4 +1,4 @@
-import getData from "./GetCharacters.js";
+import getData from "./GetData.mjs";
 
 async function Print(times){
     const result = await getData(times);
@@ -8,4 +8,4 @@ async function Print(times){
     };
     //console.log(result.length);
 };
-Print(5)
+Print(4)

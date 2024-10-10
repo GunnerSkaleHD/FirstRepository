@@ -1,6 +1,4 @@
 
-
-
 async function getData(times){
     const url = "https://thronesapi.com/api/v2/Characters"
     try{
@@ -47,7 +45,7 @@ async function getData(times){
         console.log(".");
         */
         //console.log(Namearray)
-        return(Namearray);
+        return Namearray;
         
     }   
     catch(error){
