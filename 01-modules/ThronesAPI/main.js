@@ -1,7 +1,7 @@
 import getData from "./GetCharacters.js";
 
-async function Print(num){
-    const result = await getData(num);
+async function Print(times){
+    const result = await getData(times);
     console.log("\n")
     for (let i of result){
         console.log(i + "\n")
