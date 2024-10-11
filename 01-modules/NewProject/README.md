@@ -1,2 +1,0 @@
-# NewProject
-A JavaScript project

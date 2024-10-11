@@ -38,4 +38,4 @@ async function getData(times){
 
 };
 
-export default getData
+export {getData as "getData"}

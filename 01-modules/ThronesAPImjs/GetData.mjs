@@ -25,7 +25,6 @@ async function getData(times){
 
             Namearray.push(json[id].fullName);
             IDarray.push(json[id])
-            console.log(json[id])
            
         };
         return Namearray;
@@ -38,4 +37,4 @@ async function getData(times){
 
 };
 
-export default getData
+export {getData as "getData"}

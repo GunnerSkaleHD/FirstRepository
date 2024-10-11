@@ -13,4 +13,4 @@ async function Print(times: number){
     };
 };
 
-Print(1)
+Print(7)

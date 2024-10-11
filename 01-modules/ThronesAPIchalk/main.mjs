@@ -1,4 +1,4 @@
-import getData from "./GetData.mjs";
+import {getData} from "./GetData.mjs";
 import chalk from "chalk";
 
 async function Print(times){
