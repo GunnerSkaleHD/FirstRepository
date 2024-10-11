@@ -1,9 +1,7 @@
 import {getData} from "./getData"
 
-async function Print(times){
+async function Print(times: number){
     
-    type times = number
-
     let array: string[] = await getData(times);
 
     console.log("\n");
@@ -15,4 +13,4 @@ async function Print(times){
     };
 };
 
-Print(7);
+Print(1)

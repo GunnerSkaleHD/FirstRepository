@@ -1,13 +1,11 @@
 
-export async function getData(times): Promise<any>{
+export async function getData(times: number): Promise<any>{
     const response = await fetch("https://thronesapi.com/api/v2/Characters")
     const result = await response.json();
 
     var NameArray: string[] = [];
     var IdArray: number[] = [];
     var id: number;
-
-    type times = number
     
     if (times == null){
         times = 3
