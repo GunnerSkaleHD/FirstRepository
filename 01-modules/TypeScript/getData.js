@@ -36,26 +36,41 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var getData_1 = require("./getData");
-function Print(times) {
+exports.getData = getData;
+function getData(times) {
     return __awaiter(this, void 0, void 0, function () {
-        var array, _i, array_1, i;
+        var response, result, NameArray, IdArray, id, i, id;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    return [4 /*yield*/, (0, getData_1.getData)(times)];
+                case 0: return [4 /*yield*/, fetch("https://thronesapi.com/api/v2/Characters")];
                 case 1:
-                    array = _a.sent();
-                    console.log("\n");
-                    for (_i = 0, array_1 = array; _i < array_1.length; _i++) {
-                        i = array_1[_i];
-                        console.log(i + "\n");
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    result = _a.sent();
+                    NameArray = [];
+                    IdArray = [];
+                    if (times == null) {
+                        times = 3;
+                    }
+                    else if (times > 53) {
+                        times = 3;
                     }
                     ;
-                    return [2 /*return*/];
+                    for (i = 0; i < times; i++) {
+                        id = Math.floor(Math.random() * 53);
+                        if (IdArray.indexOf(id) !== -1) {
+                            times = times + 1;
+                            continue;
+                        }
+                        ;
+                        //var Name: string = result[id].fullname
+                        NameArray.push(result[id].fullName);
+                        IdArray.push(result[id]);
+                    }
+                    return [2 /*return*/, NameArray];
             }
         });
     });
 }
 ;
-Print(7);

@@ -1,21 +1,18 @@
-async function getData(): Promise<any>{
-    const response = await fetch("https://thronesapi.com/api/v2/Characters")
-    const result = await response.json();
-    let array: string[] = [];
-    let i: string;
-    for (i of result){
-        array.push(i);
-    }
-    console.log(array);
-    return array;
+import {getData} from "./getData"
+
+async function Print(times){
+    
+    type times = number
+
+    let array: string[] = await getData(times);
+
+    console.log("\n");
+
+    for (let i of array){
+
+        console.log(i + "\n");
+
+    };
 };
 
-getData()
-
-/*
-async function print(){
-    let result = await getData()
-    console.log(result)
-}
-print()
-*/
+Print(7);
