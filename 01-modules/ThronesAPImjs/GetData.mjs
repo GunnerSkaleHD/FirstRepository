@@ -25,7 +25,6 @@ async function getData(times){
 
             Namearray.push(json[id].fullName);
 
-            IDarray.push(id);
            
         };
         return Namearray;

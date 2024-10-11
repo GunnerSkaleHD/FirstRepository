@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 function getData() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, result;
+        var response, result, array, i, _i, result_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, fetch("https://thronesapi.com/api/v2/Characters")];
@@ -45,24 +45,23 @@ function getData() {
                     return [4 /*yield*/, response.json()];
                 case 2:
                     result = _a.sent();
-                    return [2 /*return*/, result];
+                    array = [];
+                    for (_i = 0, result_1 = result; _i < result_1.length; _i++) {
+                        i = result_1[_i];
+                        array.push(i);
+                    }
+                    console.log(array);
+                    return [2 /*return*/, array];
             }
         });
     });
 }
 ;
-function print() {
-    return __awaiter(this, void 0, void 0, function () {
-        var Whatever;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, getData()];
-                case 1:
-                    Whatever = _a.sent();
-                    console.log(Whatever);
-                    return [2 /*return*/];
-            }
-        });
-    });
+getData();
+/*
+async function print(){
+    let result = await getData()
+    console.log(result)
 }
-print();
+print()
+*/ 
