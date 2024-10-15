@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { PHeading, PButton, PLink } from '@porsche-design-system/components-react';
 
 interface Character {
     id: number;
@@ -25,12 +26,13 @@ function CharactersList({ characters }: { characters: Character[]}) {
     return(
         <>
             <div className="Site">
-                <h2 className="Name">5 Random Characters!</h2>
+                <PHeading className="Margin" align="center">5 Random Characters!</PHeading>
+                <PButton className="Margin" onClick={function(){return setRandomImages(generateRandomImages(characters, 5))}}>Generate new</PButton>
                 {randomImages.map((imageUrl, index) => {
                     const character = characters.find(c => c.imageUrl === imageUrl);
                     return(
                         <div key={index}>
-                            <h3 className="Name">{character?.fullName}</h3>
+                            <PHeading align="center" size="large">{character?.fullName}</PHeading>
                             <img key={index} src={imageUrl} alt="Character Imgae" className="Image" />
                         </div>
 
@@ -40,12 +42,11 @@ function CharactersList({ characters }: { characters: Character[]}) {
 
             </div>
             <div className="Footer">
-                <a className="Link" href="https://thronesapi.com/">Visit ThronesAPI!</a>
+                <PLink variant="secondary" href="https://thronesapi.com/">Visit ThronesAPI!</PLink>
             </div>
         </>
     )
 
     
 };
-
 export default CharactersList

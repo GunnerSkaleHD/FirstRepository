@@ -9,6 +9,7 @@ function App() {
       .then(response => response.json())
       .then((data: Character[]) => setData(data))
       .catch(error => console.error(error));
+      document.title = 'ThronesWebsite';
   }, []);
 
   return (
