@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react"
-import CharactersList from "./CharactersList"
+import { useEffect, useState } from "react"
+import { CharactersList } from "./CharactersList"
 
-function App() {
+export function App() {
   const [data, setData] = useState<Character[] | null>(null);
 
   useEffect(() => {
@@ -19,4 +19,3 @@ function App() {
   );
 }
 
-export default App

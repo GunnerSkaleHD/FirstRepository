@@ -12,7 +12,7 @@ interface Character {
     imageUrl: string;
 }
 
-function CharactersList({ characters }: { characters: Character[]}) {
+export function CharactersList({ characters }: { characters: Character[]}) {
     const [randomImages, setRandomImages] = useState<string[]>([]);
 
     useEffect(() => {
@@ -26,8 +26,8 @@ function CharactersList({ characters }: { characters: Character[]}) {
     return(
         <>
             <div className="Site">
-                <PHeading className="Margin" align="center">5 Random Characters!</PHeading>
-                <PButton className="Margin" onClick={function(){return setRandomImages(generateRandomImages(characters, 5))}}>Generate new</PButton>
+                <PHeading className="Margin" align="center">Five Random Thrones Characters</PHeading>
+                <PButton className="Margin" onClick={function(){return setRandomImages(generateRandomImages(characters, 5))}}>Generate again</PButton>
                 {randomImages.map((imageUrl, index) => {
                     const character = characters.find(c => c.imageUrl === imageUrl);
                     return(
@@ -49,4 +49,3 @@ function CharactersList({ characters }: { characters: Character[]}) {
 
     
 };
-export default CharactersList
