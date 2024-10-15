@@ -32,18 +32,16 @@ export function CharactersList({ characters }: { characters: Character[]}) {
                     const character = characters.find(c => c.imageUrl === imageUrl);
                     return(
                         <div key={index}>
-                            <PHeading align="center" size="large">{character?.fullName}</PHeading>
+                            <PHeading data-testid="characterName" align="center" size="large">{character?.fullName}</PHeading>
                             <img key={index} src={imageUrl} alt="Character Imgae" className="Image" />
                         </div>
 
                     );
                 
                 })}
-
-            </div>
-            <div className="Footer">
                 <PLink variant="secondary" href="https://thronesapi.com/">Visit ThronesAPI!</PLink>
             </div>
+            
         </>
     )
 
