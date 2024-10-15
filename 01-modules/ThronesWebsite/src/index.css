@@ -8,6 +8,7 @@
 }
 .Name{
     padding:10px;
+    font-family:Arial, Helvetica, sans-serif;
     text-align: center
     
 }
@@ -32,5 +33,5 @@
     
 }
 .Margin{
-    margin-bottom: 20px;
+    margin: 20px;
 }
