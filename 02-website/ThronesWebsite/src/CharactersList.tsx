@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { PHeading, PButton, PLink } from '@porsche-design-system/components-react';
 
 interface Character {
