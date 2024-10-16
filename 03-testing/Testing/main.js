@@ -6,7 +6,7 @@ export function main() {
 
   let date = new Date().getFullYear()
 
-  let modelNames = ["911", "718", "Taycan", "Macan", "918"];
+  let modelNames = ["911", "718", "Taycan", "Macan", "Panamera"];
   const colors = ["blue", "red", "black", "white", "yellow"];
   const condition = ["used", "new", "factory new"];
 
