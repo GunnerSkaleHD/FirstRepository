@@ -25,7 +25,7 @@ export function main() {
   };
 
 
-  return("Your random car is a " + sentence[2] + " " + sentence[0] + " in " + sentence[1] + "!");
+  return("Your new car is a " + sentence[2] + " " + sentence[0] + " in " + sentence[1] + "!");
   
 };
 console.log(main())

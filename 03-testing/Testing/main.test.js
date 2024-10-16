@@ -19,13 +19,13 @@ describe('Random Car', () => {
       const date = new Date(2040, 1, 1, 1)
       vi.setSystemTime(date)
   
-      expect(main()).toEqual("Your random car is a used Taycan in blue!")
+      expect(main()).toEqual("Your new car is a used Taycan in blue!")
     })
   
     it('returns also gas powered vehicles', () => {
       const date = new Date(2000, 1, 1, 19)
       vi.setSystemTime(date)
   
-      expect(main()).toEqual("Your random car is a used 911 in blue!")
+      expect(main()).toEqual("Your new car is a used 911 in blue!")
     })
   })
