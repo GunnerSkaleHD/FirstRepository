@@ -1,10 +1,5 @@
-
-
-
 export function main() {
-
-
-  let date = new Date().getFullYear()
+  let date = new Date().getFullYear();
 
   let modelNames = ["911", "718", "Taycan", "Macan", "Panamera"];
   const colors = ["blue", "red", "black", "white", "yellow"];
@@ -12,20 +7,25 @@ export function main() {
 
   if (date > 2029) {
     modelNames = ["Taycan", "Macan"];
-  };
-  
+  }
+
   const configs = [modelNames, colors, condition];
 
   const sentence = [];
 
-  for (const i of configs) {    
-    const n = Math.floor(Math.random() * i.length)
-    sentence.push(i[n])
-    
-  };
+  for (const i of configs) {
+    const n = Math.floor(Math.random() * i.length);
+    sentence.push(i[n]);
+  }
 
-
-  return("Your new car is a " + sentence[2] + " " + sentence[0] + " in " + sentence[1] + "!");
-  
-};
-console.log(main())
+  return (
+    "Your new car is a " +
+    sentence[2] +
+    " " +
+    sentence[0] +
+    " in " +
+    sentence[1] +
+    "!"
+  );
+}
+console.log(main());
