@@ -1,9 +1,15 @@
 {
-  "devDependencies": {
-    "jest": "^29.7.0"
-  },
-  
+  "name": "testing",
+  "version": "1.0.0",
+  "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vitest": "^2.1.3"
   }
 }
