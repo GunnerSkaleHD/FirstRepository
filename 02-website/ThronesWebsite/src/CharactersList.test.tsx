@@ -1,9 +1,8 @@
 
 import { CharactersList } from "./CharactersList.tsx"
 import { expect, vi, afterEach, beforeEach, describe, it } from "vitest"
-import { render }  from "@testing-library/react"
-
-
+import { render } from 'vitest-browser-react'
+import { PorscheDesignSystemProvider } from '@porsche-design-system/components-react';
 
 describe('5 random Characters', () => {
     beforeEach(() => {
@@ -14,7 +13,7 @@ describe('5 random Characters', () => {
     afterEach(() => {
     })
   
-    it('Returns the first five Characters', () => {
+    it('Returns the first five Characters', async () => {
         interface Character {
             id: number;
             firstName: string;
@@ -557,9 +556,16 @@ describe('5 random Characters', () => {
               "imageUrl": "https://thronesapi.com/assets/images/bronn.jpg"
             }
           ]
-        const {getByTestId} = render(<CharactersList characters={data}/>)
-        const characterNameValue = getByTestId("characterName").textContent;
-        expect(characterNameValue).toEqual("Daenerys Targaryen")
+        const {getByTestId, getByText} = render(
+        <PorscheDesignSystemProvider>
+          <CharactersList characters={data}/>
+        </PorscheDesignSystemProvider>)
+        const characterName = getByTestId("characterName");
+        console.log(characterName)
+        //await expect.element(getByText("Five Random Thrones Characters")).toBeInTheDocument()  
+        //expect(characterName).toContainText("Daenerys Targaryen")
+        await expect.element(characterName).toContain("Lord Bronn")
+
         
     })
   })

@@ -26,13 +26,13 @@ export function CharactersList({ characters }: { characters: Character[]}) {
     return(
         <>
             <div className="Site">
-                <PHeading className="Margin" align="center">Five Random Thrones Characters</PHeading>
+                <h2 className="Margin" align="center">Five Random Thrones Characters</h2>
                 <PButton className="Margin" onClick={function(){return setRandomImages(generateRandomImages(characters, 5))}}>Generate again</PButton>
                 {randomImages.map((imageUrl, index) => {
                     const character = characters.find(c => c.imageUrl === imageUrl);
                     return(
                         <div key={index}>
-                            <PHeading data-testid="characterName" align="center" size="large">{character?.fullName}</PHeading>
+                            <PHeading data-testid={index === 0 ?`characterName`: undefined} align="center" size="large">{character?.fullName}</PHeading>
                             <img key={index} src={imageUrl} alt="Character Imgae" className="Image" />
                         </div>
 
