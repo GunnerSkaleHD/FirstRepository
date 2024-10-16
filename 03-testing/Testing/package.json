@@ -11,5 +11,6 @@
   "description": "",
   "devDependencies": {
     "vitest": "^2.1.3"
-  }
+  },
+  "type": "module"
 }
