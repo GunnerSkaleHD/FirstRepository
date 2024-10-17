@@ -1,11 +1,11 @@
 import { CharactersList } from "./CharactersList";
 import { PorscheDesignSystemProvider } from "@porsche-design-system/components-react";
 import { render } from "@testing-library/react";
-import { describe, expect, test, jest } from "@jest/globals";
+import { describe, expect, test, beforeEach, afterEach, vi } from "vitest";
 
 describe("Returns 5 defined Characters", () => {
   beforeEach(() => {
-    const mocked = jest.fn(() => 0);
+    const mocked = vi.fn(() => 0);
     Math.random = mocked;
   });
 
@@ -562,7 +562,8 @@ describe("Returns 5 defined Characters", () => {
         <CharactersList characters={data} />
       </PorscheDesignSystemProvider>
     );
+
     const characterName = getByTestId("characterName0").textContent;
-    expect(characterName).toEqual("Lord Bronn");
+    expect(characterName).toBe("Lord Bronn");
   });
 });
