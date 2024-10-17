@@ -1,6 +1,8 @@
 // src/index.ts
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import { getUser } from "@services/userService";
+import { log } from "@utils/logger";
 
 dotenv.config();
 
