@@ -51,7 +51,7 @@ export function CharactersList({ characters }: { characters: Character[] }) {
           return (
             <div key={index}>
               <PHeading
-                data-testid={index === 0 ? `characterName` : undefined}
+                data-testid={index === 0 ? `characterName${index}` : undefined}
                 align="center"
                 size="large"
               >
