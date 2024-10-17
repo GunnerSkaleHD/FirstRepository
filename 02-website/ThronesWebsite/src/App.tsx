@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { CharactersList } from "./CharactersList";
 
-/*
 interface Character {
   id: number;
   firstName: string;
@@ -12,7 +11,6 @@ interface Character {
   image: string;
   imageUrl: string;
 }
-*/
 
 export function App() {
   const [data, setData] = useState<Character[] | null>(null);

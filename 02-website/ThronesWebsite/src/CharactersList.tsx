@@ -35,9 +35,9 @@ export function CharactersList({ characters }: { characters: Character[] }) {
   return (
     <>
       <div className="Site">
-        <h2 className="Margin" align="center">
+        <PHeading className="Margin" align="center">
           Five Random Thrones Characters
-        </h2>
+        </PHeading>
         <PButton
           className="Margin"
           onClick={function () {
