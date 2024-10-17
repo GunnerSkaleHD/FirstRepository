@@ -562,10 +562,7 @@ describe("Returns 5 defined Characters", () => {
         <CharactersList characters={data} />
       </PorscheDesignSystemProvider>
     );
-
     const characterName = getByTestId("characterName0").textContent;
-    //await expect.element(getByText("Five Random Thrones Characters")).toBeInTheDocument()
-    //expect(characterName).toContainText("Daenerys Targaryen")
     expect(characterName).toEqual("Lord Bronn");
   });
 });
