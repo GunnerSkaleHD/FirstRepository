@@ -1,21 +1,13 @@
-import {getData} from "./GetData.mjs";
+import { getData } from "./GetData.mjs";
 
+async function Print(times) {
+  const array = await getData(times);
 
-async function Print(times){
+  console.log("\n");
 
-    const array = await getData(times);
-    
-    console.log("\n");
-    
-    for (let i of array){
+  for (let i of array) {
+    console.log(i + "\n");
+  }
+}
 
-        console.log(i + "\n");
-
-    };
-    
-    
-};
-
-
-
-Print(7)
+Print(2);

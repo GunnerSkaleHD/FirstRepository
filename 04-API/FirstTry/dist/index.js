@@ -1,17 +1,188 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
 // src/index.ts
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const cors_1 = __importDefault(require("cors"));
+//import { getUser } from "@services/userService";
+//import { log } from "@utils/logger";
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
-app.get("/", (req, res) => {
-    res.send("MyServer");
+const data = [
+  {
+    id: 0,
+    firstName: "Tony",
+    lastName: "Stark",
+    fullName: "Tony Stark",
+    title: "Iron Man",
+    family: "",
+    image: "",
+    imageUrl: "https://m.media-amazon.com/images/I/61X1QDPTE1L._AC_SX679_.jpg",
+  },
+  {
+    id: 1,
+    firstName: "Steve",
+    lastName: "Rogers",
+    fullName: "Steve Rogers",
+    title: "Captain America",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://bilder.deutschlandfunk.de/f6/74/a2/c3/f674a2c3-a097-45cb-951f-6f8eb378c24a/foto-freistil-captain-america-100-1920x1080.jpg",
+  },
+  {
+    id: 2,
+    firstName: "Bruce",
+    lastName: "Banner",
+    fullName: "Bruce Banner",
+    title: "Hulk",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://s3-eu-central-1.amazonaws.com/vodafone-featured/wp-content/uploads/2020/10/26114707/96466383-1-960x540.jpg",
+  },
+  {
+    id: 3,
+    firstName: "Peter",
+    lastName: "Parker",
+    fullName: "Peter Parker",
+    title: "Spider Man",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://deadline.com/wp-content/uploads/2024/04/spider-man-sam-raimi.jpg?w=681&h=383&crop=1",
+  },
+  {
+    id: 4,
+    firstName: "Thor",
+    lastName: "Odinsonr",
+    fullName: "Thor Odinson",
+    title: "Thor",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://cdn.prod.www.spiegel.de/images/18a5354b-0001-0004-0000-000001017395_w960_r1.778_fpx57.14_fpy50.webp",
+  },
+  {
+    id: 5,
+    firstName: "Stephen",
+    lastName: "Strange",
+    fullName: "Stephen Strange",
+    title: "Dr Strange",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/1/18/Benedict_Cumberbatch_as_Doctor_Strange.jpeg",
+  },
+  {
+    id: 6,
+    firstName: "Bucky",
+    lastName: "Barnes",
+    fullName: "Bucky Barnes",
+    title: "Winter Soldier",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/4/4b/Sebastian_Stan_as_Bucky_Barnes.jpg",
+  },
+  {
+    id: 7,
+    firstName: "Eddie",
+    lastName: "Brock",
+    fullName: "Eddie Brock",
+    title: "Venom",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/e/ec/Tom_Hardy_as_Eddie_Brock_and_Venom.jpg",
+  },
+  {
+    id: 8,
+    firstName: "Nick",
+    lastName: "Fury",
+    fullName: "Nick Fury",
+    title: "Nick Fury",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/c/c8/Samuel_L._Jackson_as_Nick_Fury_in_The_Avengers_%282012_film%29.jpg",
+  },
+  {
+    id: 9,
+    firstName: "Natasha",
+    lastName: "Romanoff",
+    fullName: "Natasha Romanoff",
+    title: "Black Widow",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/f/f6/Scarlett_Johansson_as_Black_Widow.jpg",
+  },
+  {
+    id: 10,
+    firstName: "Thanos",
+    lastName: "",
+    fullName: "Thanos",
+    title: "Thanos",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://th-thumbnailer.cdn-si-edu.com/SzgeKtwUpbeLDgP0GAUk1_RlKY0=/1000x750/filters:no_upscale():focal(582x120:583x121)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/d6/7d/d67d186f-f5f3-4867-82c5-2c772120304f/thanos-snap-featured-120518-2.jpg",
+  },
+  {
+    id: 11,
+    firstName: "T'Challa",
+    lastName: "",
+    fullName: "T'Challa",
+    title: "Black Panther",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://cdn.prod.www.spiegel.de/images/8de1ee24-0001-0004-0000-000001247537_w1600_r1.8962962962962964_fpx58.01_fpy50.webp",
+  },
+  {
+    id: 12,
+    firstName: "Scott",
+    lastName: "Lang",
+    fullName: "Scott Lang",
+    title: "Ant-Man",
+    family: "",
+    image: "",
+    imageUrl: "https://superhelden.org/wp-content/uploads/2023/01/Ant-Man.jpg",
+  },
+  {
+    id: 13,
+    firstName: "Loki",
+    lastName: "",
+    fullName: "Loki",
+    title: "Loki",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Tom_Hiddleston_by_Gage_Skidmore.jpg/440px-Tom_Hiddleston_by_Gage_Skidmore.jpg",
+  },
+  {
+    id: 14,
+    firstName: "Peter",
+    lastName: "Quill",
+    fullName: "Peter Jason Quill",
+    title: "Star-Lord",
+    family: "",
+    image: "",
+    imageUrl:
+      "https://www.superherohype.com/wp-content/uploads/sites/4/2023/03/Chris-Pratt-Guardians-3.jpg",
+  },
+];
+app.use((0, cors_1.default)());
+app.get("/mcuAPI", (req, res) => {
+  res.json(data);
 });
 app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+  console.log(`[server]: Server is running at http://localhost:${port}`);
 });

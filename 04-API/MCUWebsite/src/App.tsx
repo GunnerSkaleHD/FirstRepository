@@ -16,12 +16,12 @@ export function App() {
   const [data, setData] = useState<Character[] | null>(null);
 
   useEffect(() => {
-    fetch("https://thronesapi.com/api/v2/Characters")
+    fetch("http://localhost:3000/mcuAPI")
       .then((response) => response.json())
       .then((data: Character[]) => setData(data))
       .catch((error) => console.error(error));
     console.log(data);
-    document.title = "ThronesWebsite";
+    document.title = "Marvel Characters";
   }, []);
 
   return (

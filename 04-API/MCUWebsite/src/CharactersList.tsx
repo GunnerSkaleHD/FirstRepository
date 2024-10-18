@@ -36,7 +36,7 @@ export function CharactersList({ characters }: { characters: Character[] }) {
     <>
       <div className="Site">
         <PHeading className="Margin" align="center">
-          Five Random Thrones Characters
+          Five Random Marvel Characters
         </PHeading>
         <PButton
           className="Margin"
@@ -66,8 +66,8 @@ export function CharactersList({ characters }: { characters: Character[] }) {
             </div>
           );
         })}
-        <PLink variant="secondary" href="https://thronesapi.com/">
-          Visit ThronesAPI!
+        <PLink variant="secondary" href="http://localhost:3000/mcuAPI">
+          Visit MCU-API!
         </PLink>
       </div>
     </>
