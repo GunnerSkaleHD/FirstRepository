@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import {
   PHeading,
   PButton,
@@ -22,7 +23,9 @@ export function CharactersList({ characters }: { characters: Character[] }) {
   useEffect(() => {
     setRandomImages(generateRandomImages(characters, 5));
   }, [characters]);
-
+  //useEffect weglassen
+  //Was sind Keys und wie kann man die am besten verwenden (best practice)
+  //styled components
   const generateRandomImages = (
     characters: Character[],
     count: number
