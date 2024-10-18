@@ -18,23 +18,20 @@ interface Character {
 }
 
 export function CharactersList({ characters }: { characters: Character[] }) {
-  const [randomImages, setRandomImages] = useState<string[]>([]);
-
-  useEffect(() => {
-    setRandomImages(generateRandomImages(characters, 5));
-  }, [characters]);
-  //useEffect weglassen
-  //Was sind Keys und wie kann man die am besten verwenden (best practice)
-  //styled components
   const generateRandomImages = (
     characters: Character[],
     count: number
   ): string[] => {
-    const shuffledCharacters = [...characters].sort(() => Math.random() - 0.5);
+    let shuffledCharacters = [...characters].sort(() => Math.random() - 0.5);
     return shuffledCharacters
       .slice(0, count)
       .map((character) => character.imageUrl);
   };
+
+  const [randomImages, setRandomImages] = useState<string[]>(
+    generateRandomImages(characters, 5)
+  );
+
   return (
     <>
       <div className="Site">

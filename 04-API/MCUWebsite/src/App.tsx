@@ -20,7 +20,6 @@ export function App() {
       .then((response) => response.json())
       .then((data: Character[]) => setData(data))
       .catch((error) => console.error(error));
-    console.log(data);
     document.title = "Marvel Characters";
   }, []);
 
