@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CharactersList } from "./CharactersList";
+import StyledComponents from "./StyledComponents";
 
 interface Character {
   id: number;

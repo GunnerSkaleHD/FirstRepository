@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
 import {
-  PHeading,
-  PButton,
-  PLink,
-} from "@porsche-design-system/components-react";
+  Site,
+  Image,
+  StyledPHeading,
+  StyledCharacterName,
+} from "./StyledComponents";
+
+import { PButton, PLink } from "@porsche-design-system/components-react";
 
 interface Character {
   id: number;
@@ -34,10 +36,8 @@ export function CharactersList({ characters }: { characters: Character[] }) {
 
   return (
     <>
-      <div className="Site">
-        <PHeading className="Margin" align="center">
-          Five Random Marvel Characters
-        </PHeading>
+      <Site>
+        <StyledPHeading>Five Random Marvel Characters</StyledPHeading>
         <PButton
           className="Margin"
           onClick={function () {
@@ -49,27 +49,20 @@ export function CharactersList({ characters }: { characters: Character[] }) {
         {randomImages.map((imageUrl, index) => {
           const character = characters.find((c) => c.imageUrl === imageUrl);
           return (
-            <div key={index}>
-              <PHeading
+            <div key={character?.id}>
+              <StyledCharacterName
                 data-testid={index === 0 ? `characterName${index}` : undefined}
-                align="center"
-                size="large"
               >
                 {character?.title}
-              </PHeading>
-              <img
-                key={index}
-                src={imageUrl}
-                alt="Character Imgae"
-                className="Image"
-              />
+              </StyledCharacterName>
+              <Image src={imageUrl} alt="Character Imgae" />
             </div>
           );
         })}
         <PLink variant="secondary" href="http://localhost:3000/mcuAPI">
           Visit MCU-API!
         </PLink>
-      </div>
+      </Site>
     </>
   );
 }
