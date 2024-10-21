@@ -8,7 +8,6 @@ import {
   themeLightPrimary,
 } from "@porsche-design-system/components-react/styles";
 import styled from "styled-components";
-import React from "react";
 
 export const Site = styled.div`
   background-color: white;
@@ -32,7 +31,6 @@ export const StyledCharacterName = styled.h2({
 });
 export const StyledLink = styled.a({
   ...textMediumStyle,
-  ...getHoverStyle(),
   color: themeLightPrimary,
 });
 
