@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { PButton, PLink } from "@porsche-design-system/components-react";
 import {
   Site,
   Image,
   StyledPHeading,
   StyledCharacterName,
   StyledLink,
+  StyledButton,
 } from "./StyledComponents";
 
 interface Character {
@@ -38,14 +38,13 @@ export function CharactersList({ characters }: { characters: Character[] }) {
     <>
       <Site>
         <StyledPHeading>Five Random Marvel Characters</StyledPHeading>
-        <PButton
-          className="Margin"
-          onClick={function () {
+        <StyledButton
+          onClick={() => {
             return setRandomImages(generateRandomImages(characters, 5));
           }}
         >
           Generate again
-        </PButton>
+        </StyledButton>
         {randomImages.map((imageUrl, index) => {
           const character = characters.find((c) => c.imageUrl === imageUrl);
           return (
