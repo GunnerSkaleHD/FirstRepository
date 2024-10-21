@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { PButton, PLink } from "@porsche-design-system/components-react";
 import {
   Site,
   Image,
   StyledPHeading,
   StyledCharacterName,
+  StyledLink,
 } from "./StyledComponents";
-
-import { PButton, PLink } from "@porsche-design-system/components-react";
 
 interface Character {
   id: number;
@@ -59,9 +59,9 @@ export function CharactersList({ characters }: { characters: Character[] }) {
             </div>
           );
         })}
-        <PLink variant="secondary" href="http://localhost:3000/mcuAPI">
+        <StyledLink href="http://localhost:3000/mcuAPI">
           Visit MCU-API!
-        </PLink>
+        </StyledLink>
       </Site>
     </>
   );

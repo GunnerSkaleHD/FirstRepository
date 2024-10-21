@@ -6,8 +6,10 @@ import {
 import {
   headingLargeStyle,
   displayMediumStyle,
-  headingMediumStyle,
-  borderRadiusLarge,
+  textMediumStyle,
+  getHoverStyle,
+  getFocusStyle,
+  themeLightPrimary,
 } from "@porsche-design-system/components-react/styles";
 import styled from "styled-components";
 import React from "react";
@@ -31,4 +33,10 @@ export const StyledPHeading = styled.h2({
 
 export const StyledCharacterName = styled.h2({
   ...headingLargeStyle,
+});
+export const StyledLink = styled.a({
+  ...textMediumStyle,
+  ...getHoverStyle(),
+  ...getFocusStyle({ offset: "none" }),
+  color: themeLightPrimary,
 });
