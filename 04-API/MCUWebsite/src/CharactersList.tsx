@@ -28,17 +28,6 @@ export function CharactersList({ characters }: { characters: Character[] }) {
   const [randomImages, setRandomImages] = useState<string[]>(
     generateRandomImages(characters)
   );
-  /*
-  const [data, setData] = useState<Character[]>();
-  async function generateNewImages() {
-    fetch("http://localhost:3000/mcuAPI")
-      .then((response) => response.json())
-      .then((data: Character[]) => setData(data))
-      .catch((error) => console.error(error));
-    console.log(data);
-    setRandomImages(generateRandomImages(data));
-  }
-  */
 
   const [data, setData] = useState<Character[]>();
   async function generateNewImages() {
