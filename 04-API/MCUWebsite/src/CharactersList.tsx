@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Site,
   Image,
@@ -20,19 +20,32 @@ interface Character {
 }
 
 export function CharactersList({ characters }: { characters: Character[] }) {
-  const generateRandomImages = (
-    characters: Character[],
-    count: number
-  ): string[] => {
-    let shuffledCharacters = [...characters].sort(() => Math.random() - 0.5);
-    return shuffledCharacters
-      .slice(0, count)
-      .map((character) => character.imageUrl);
+  const generateRandomImages = (characters: Character[]): string[] => {
+    let shuffledCharacters = [...characters];
+    return shuffledCharacters.map((character) => character.imageUrl);
   };
 
   const [randomImages, setRandomImages] = useState<string[]>(
-    generateRandomImages(characters, 5)
+    generateRandomImages(characters)
   );
+  /*
+  const [data, setData] = useState<Character[]>();
+  async function generateNewImages() {
+    fetch("http://localhost:3000/mcuAPI")
+      .then((response) => response.json())
+      .then((data: Character[]) => setData(data))
+      .catch((error) => console.error(error));
+    console.log(data);
+    setRandomImages(generateRandomImages(data));
+  }
+  */
+
+  const [data, setData] = useState<Character[]>();
+  async function generateNewImages() {
+    const response = await fetch("http://localhost:3000/mcuAPI");
+    const newCharacters: Character[] = await response.json();
+    setRandomImages(generateRandomImages(newCharacters));
+  }
 
   return (
     <>
@@ -40,7 +53,7 @@ export function CharactersList({ characters }: { characters: Character[] }) {
         <StyledPHeading>Five Random Marvel Characters</StyledPHeading>
         <StyledButton
           onClick={() => {
-            return setRandomImages(generateRandomImages(characters, 5));
+            generateNewImages();
           }}
         >
           Generate again
