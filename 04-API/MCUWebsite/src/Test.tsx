@@ -18,7 +18,7 @@ interface Character {
   image: string;
   imageUrl: string;
 }
-
+const hi: string = "hi";
 export function Test({ characters }: { characters: Character[] }) {
   const generateRandomImages = (characters: Character[]): string[] => {
     let shuffledCharacters = [...characters];
