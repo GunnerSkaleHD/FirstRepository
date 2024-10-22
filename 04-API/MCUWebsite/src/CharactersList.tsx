@@ -21,7 +21,7 @@ interface Character {
 
 export function CharactersList({ characters }: { characters: Character[] }) {
   const generateRandomImages = (characters: Character[]): string[] => {
-    let shuffledCharacters = [...characters];
+    const shuffledCharacters = [...characters];
     return shuffledCharacters.map((character) => character.imageUrl);
   };
 
