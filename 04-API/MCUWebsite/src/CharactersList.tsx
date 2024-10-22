@@ -29,7 +29,6 @@ export function CharactersList({ characters }: { characters: Character[] }) {
     generateRandomImages(characters)
   );
 
-  const [data, setData] = useState<Character[]>();
   async function generateNewImages() {
     const response = await fetch("http://localhost:3000/mcuAPI");
     const newCharacters: Character[] = await response.json();
