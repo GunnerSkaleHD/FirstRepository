@@ -18,7 +18,7 @@ interface Character {
   imageUrl: string;
 }
 
-const data: Character[] = [
+const characters: Character[] = [
   {
     id: 0,
     firstName: "Tony",
@@ -172,9 +172,17 @@ const data: Character[] = [
       "https://www.superherohype.com/wp-content/uploads/sites/4/2023/03/Chris-Pratt-Guardians-3.jpg",
   },
 ];
+
 app.use(cors());
 app.get("/mcuAPI", (req: Request, res: Response) => {
-  res.json(data);
+  const generateRandomImages = (
+    characters: Character[],
+    count: number
+  ): Character[] => {
+    let shuffledCharacters = [...characters].sort(() => Math.random() - 0.5);
+    return shuffledCharacters.slice(0, count);
+  };
+  res.json(generateRandomImages(characters, 5));
 });
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

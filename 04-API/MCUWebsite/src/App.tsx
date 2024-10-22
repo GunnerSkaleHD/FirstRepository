@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CharactersList } from "./CharactersList";
+import { Test } from "./Test";
 
 interface Character {
   id: number;
@@ -24,6 +25,7 @@ export function App() {
   }, []);
 
   return (
-    <div>{data ? <CharactersList characters={data} /> : "Loading..."}</div>
+    //<div>{data ? <CharactersList characters={data} /> : "Loading..."}</div>
+    <div>{data ? <Test characters={data} /> : "Loading..."}</div>
   );
 }

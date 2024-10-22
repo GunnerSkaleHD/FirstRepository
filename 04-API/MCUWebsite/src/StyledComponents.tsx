@@ -1,4 +1,4 @@
-import { PButton } from "@porsche-design-system/components-react";
+import { PButton, PLink } from "@porsche-design-system/components-react";
 import {
   headingLargeStyle,
   displayMediumStyle,
@@ -29,10 +29,9 @@ export const StyledPHeading = styled.h2({
 export const StyledCharacterName = styled.h2({
   ...headingLargeStyle,
 });
-export const StyledLink = styled.a({
-  ...textMediumStyle,
-  color: themeLightPrimary,
-});
+export const StyledLink = styled(PLink)`
+  margin: 20px;
+`;
 
 export const StyledButton = styled(PButton)`
   margin: 10;
