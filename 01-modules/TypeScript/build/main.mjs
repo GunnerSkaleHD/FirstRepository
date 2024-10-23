@@ -5,7 +5,5 @@ async function Print(times) {
     for (let i of array) {
         console.log(i + "\n");
     }
-    ;
 }
-;
 Print(7);
