@@ -13,17 +13,9 @@ interface Character {
 }
 
 export function App() {
-  const [data, setData] = useState<Character[] | null>(null);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/mcuAPI")
-      .then((response) => response.json())
-      .then((data: Character[]) => setData(data))
-      .catch((error) => console.error(error));
-    document.title = "Marvel Characters";
-  }, []);
-
   return (
-    <div>{data ? <CharactersList characters={data} /> : "Loading..."}</div>
+    <div>
+      <CharactersList />
+    </div>
   );
 }

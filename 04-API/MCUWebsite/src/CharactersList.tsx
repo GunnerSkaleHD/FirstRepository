@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import {
   Site,
   Image,
@@ -19,21 +19,16 @@ interface Character {
   imageUrl: string;
 }
 
-export function CharactersList({ characters }: { characters: Character[] }) {
-  const generateRandomImages = (characters: Character[]): string[] => {
-    const shuffledCharacters = [...characters];
-    return shuffledCharacters.map((character) => character.imageUrl);
-  };
-
-  const [randomImages, setRandomImages] = useState<string[]>(
-    generateRandomImages(characters)
-  );
-
+export function CharactersList() {
   async function generateNewImages() {
     const response = await fetch("http://localhost:3000/mcuAPI");
     const newCharacters: Character[] = await response.json();
-    setRandomImages(generateRandomImages(newCharacters));
+    setData(newCharacters);
   }
+  useLayoutEffect(() => {
+    generateNewImages();
+  }, []);
+  const [data, setData] = useState<Character[]>([]);
 
   return (
     <>
@@ -46,8 +41,10 @@ export function CharactersList({ characters }: { characters: Character[] }) {
         >
           Generate again
         </StyledButton>
-        {randomImages.map((imageUrl, index) => {
-          const character = characters.find((c) => c.imageUrl === imageUrl);
+        {data.map((listCharacter, index) => {
+          const character = data.find(
+            (c) => c.imageUrl === listCharacter.imageUrl
+          );
           return (
             <div key={character?.id}>
               <StyledCharacterName
@@ -55,7 +52,7 @@ export function CharactersList({ characters }: { characters: Character[] }) {
               >
                 {character?.title}
               </StyledCharacterName>
-              <Image src={imageUrl} alt="Character Imgae" />
+              <Image src={listCharacter.imageUrl} alt="Character Imgae" />
             </div>
           );
         })}
