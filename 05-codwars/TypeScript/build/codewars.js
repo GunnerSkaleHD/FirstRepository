@@ -1,27 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.duplicateEncode = duplicateEncode;
-function duplicateEncode(word) {
-    word = word.toLowerCase();
-    const wordList = word.split("");
-    let finalWord = [];
-    for (let targetChar of wordList) {
-        let count = 0;
-        let i = 0;
-        while (i < word.length) {
-            if (word[i] === targetChar) {
-                count++;
-            }
-            i++;
+exports.findOdd = findOdd;
+function findOdd(xs) {
+    const counts = {};
+    for (const num of xs) {
+        // Umformung der ternären Bedingung in eine if-Anweisung
+        if (counts[num]) {
+            counts[num] += 1;
         }
-        if (count > 1) {
-            finalWord.push(")");
-        }
-        else if (count === 1) {
-            finalWord.push("(");
-            count = 0;
+        else {
+            counts[num] = 1;
         }
     }
-    return finalWord.join("");
+    console.log(counts);
 }
-console.log(duplicateEncode("RedBull"));
+findOdd([2, 3, 3, 2, 4, 4, 5, 5, 5, 6, 6, 1, 1]);

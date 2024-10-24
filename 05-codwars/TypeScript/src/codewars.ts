@@ -1,24 +1,15 @@
-export function duplicateEncode(word: string) {
-  word = word.toLowerCase();
-  const wordList: string[] = word.split("");
-  let finalWord: string[] = [];
-  for (let targetChar of wordList) {
-    let count: number = 0;
-    let i = 0;
-    while (i < word.length) {
-      if (word[i] === targetChar) {
-        count++;
-      }
-      i++;
-    }
-    if (count > 1) {
-      finalWord.push(")");
-    } else if (count === 1) {
-      finalWord.push("(");
-      count = 0;
+export function findOdd(xs: number[]): void {
+  const counts: { [key: number]: number } = {};
+
+  for (const num of xs) {
+    if (counts[num]) {
+      counts[num] += 1;
+    } else {
+      counts[num] = 1;
     }
   }
-  return finalWord.join("");
+
+  console.log(counts);
 }
 
-console.log(duplicateEncode("RedBull"));
+findOdd([2, 3, 3, 2, 4, 4, 5, 5, 5, 6, 6, 1, 1]);
