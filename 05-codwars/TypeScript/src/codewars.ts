@@ -1,4 +1,4 @@
-export function findOdd(xs: number[]): void {
+export function findOdd(xs: number[]) {
   const counts: { [key: number]: number } = {};
 
   for (const num of xs) {
@@ -8,8 +8,11 @@ export function findOdd(xs: number[]): void {
       counts[num] = 1;
     }
   }
-
-  console.log(counts);
+  for (const [key, value] of Object.entries(counts)) {
+    if (!Number.isInteger(value / 2)) {
+      return Number(key);
+    }
+  }
 }
 
-findOdd([2, 3, 3, 2, 4, 4, 5, 5, 5, 6, 6, 1, 1]);
+console.log(findOdd([6, 7, 6]));
