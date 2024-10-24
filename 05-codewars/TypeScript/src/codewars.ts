@@ -1,21 +1,19 @@
-export function xo(str: string): boolean {
-  str = str.toLowerCase();
-  const xoList: string[] = str.split("");
-  let xCount: number = 0;
-  let oCount: number = 0;
-  for (let i of xoList) {
-    if (i === "x") {
-      xCount++;
-    }
-    if (i === "o") {
-      oCount++;
+export function parse(data: string): number[] {
+  const input: string[] = data.split("");
+  let result: number[] = [];
+  let num: number = 0;
+  for (let i of input) {
+    if (i === "i") {
+      num++;
+    } else if (i === "d") {
+      num = num - 1;
+    } else if (i === "s") {
+      num = num * num;
+    } else if (i === "o") {
+      result.push(num);
+    } else {
+      continue;
     }
   }
-  if (xCount === oCount) {
-    return true;
-  } else {
-    return false;
-  }
+  return result;
 }
-
-console.log(xo("xxOo"));
