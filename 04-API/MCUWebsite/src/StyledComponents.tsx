@@ -2,10 +2,6 @@ import { PButton, PLink } from "@porsche-design-system/components-react";
 import {
   headingLargeStyle,
   displayMediumStyle,
-  textMediumStyle,
-  getHoverStyle,
-  getFocusStyle,
-  themeLightPrimary,
 } from "@porsche-design-system/components-react/styles";
 import styled from "styled-components";
 
