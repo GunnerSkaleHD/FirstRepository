@@ -40,4 +40,4 @@ export function solution(roman: string): number {
   return result;
 }
 
-console.log(solution("CMIX"));
+console.log(solution("DCCCCXI"));
