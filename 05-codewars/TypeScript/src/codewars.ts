@@ -22,3 +22,4 @@ export const productFib = (prod: number): [number, number, boolean] => {
     }
   }
 };
+console.log(productFib(714));
