@@ -1,43 +1,24 @@
-export function solution(roman: string): number {
-  const romanList: string[] = roman.split("");
-  let numList: number[] = [];
-  let result: number = 0;
-  for (let i of romanList) {
-    if (i === "M") {
-      numList.push(1000);
+export const productFib = (prod: number): [number, number, boolean] => {
+  function Fibo(num: number) {
+    let a: number = 1;
+    let b: number = 0;
+    let c: number = 0;
+    for (let i = 0; i < num; i++) {
+      c = a + b;
+      a = b;
+      b = c;
     }
-    if (i === "D") {
-      numList.push(500);
-    }
-    if (i === "C") {
-      numList.push(100);
-    }
-    if (i === "L") {
-      numList.push(50);
-    }
-    if (i === "X") {
-      numList.push(10);
-    }
-    if (i === "V") {
-      numList.push(5);
-    }
-    if (i === "I") {
-      numList.push(1);
+    return c;
+  }
+  let n: number = 0;
+  while (true) {
+    if (Fibo(n) * Fibo(n + 1) === prod) {
+      return [Fibo(n), Fibo(n + 1), true];
+    } else if (Fibo(n) * Fibo(n + 1) > prod) {
+      return [Fibo(n), Fibo(n + 1), false];
     } else {
+      n++;
       continue;
     }
   }
-  let position: number = 0;
-  for (let j of numList) {
-    if (numList[position] < numList[position + 1]) {
-      result = result - numList[position];
-      position++;
-    } else {
-      result = result + numList[position];
-      position++;
-    }
-  }
-  return result;
-}
-
-console.log(solution("CMIX"));
+};
