@@ -9,6 +9,45 @@ function isInteresting(n, awesomePhrases) {
         numList.push(Number(i));
     }
     console.log(numList);
-    return 0;
+    function onlyZero(nList) {
+        nList.splice(0, 1);
+        for (let i of nList) {
+            if (i != 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    function allEqual(nList) {
+        return new Set(nList).size == 1;
+    }
+    function goingUP(nList) {
+        let counter = 0;
+        for (let i = 0; i < nList.length; i++) {
+            if (nList[i] + 1 === nList[i + 1]) {
+                continue;
+            }
+            else {
+                counter = counter + 1;
+            }
+        }
+        if (counter != 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    if (onlyZero(numList)) {
+        return 2;
+    }
+    if (allEqual(numList)) {
+        return 2;
+    }
+    if (goingUP(numList)) {
+        return 2;
+    }
 }
-isInteresting(1234, []);
+console.log(isInteresting(1235, []));
