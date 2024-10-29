@@ -12,7 +12,7 @@ function isInteresting(n, awesomePhrases) {
     function onlyZero(nList) {
         nList.splice(0, 1);
         for (let i of nList) {
-            if (i != 0) {
+            if (i !== 0) {
                 return false;
             }
             else {
@@ -25,29 +25,35 @@ function isInteresting(n, awesomePhrases) {
     }
     function goingUP(nList) {
         let counter = 0;
-        for (let i = 0; i < nList.length; i++) {
-            if (nList[i] + 1 === nList[i + 1]) {
+        let j = 0;
+        while (j < nList.length - 1) {
+            if (nList[j] + 1 == nList[j + 1]) {
+                j++;
                 continue;
             }
             else {
                 counter = counter + 1;
             }
+            j++;
         }
-        if (counter != 0) {
-            return true;
-        }
-        else {
+        if (counter !== 0) {
             return false;
         }
-    }
-    if (onlyZero(numList)) {
-        return 2;
-    }
-    if (allEqual(numList)) {
-        return 2;
+        else {
+            return true;
+        }
     }
     if (goingUP(numList)) {
         return 2;
+    }
+    else if (allEqual(numList)) {
+        return 2;
+    }
+    else if (onlyZero(numList)) {
+        return 2;
+    }
+    else {
+        return 0;
     }
 }
 console.log(isInteresting(1235, []));

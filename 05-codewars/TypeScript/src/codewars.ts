@@ -10,7 +10,7 @@ export function isInteresting(n: number, awesomePhrases: number[]) {
   function onlyZero(nList: number[]) {
     nList.splice(0, 1);
     for (let i of nList) {
-      if (i != 0) {
+      if (i !== 0) {
         return false;
       } else {
         return true;
@@ -24,27 +24,32 @@ export function isInteresting(n: number, awesomePhrases: number[]) {
 
   function goingUP(nList: number[]) {
     let counter: number = 0;
-    for (let i = 0; i < nList.length; i++) {
-      if (nList[i] + 1 === nList[i + 1]) {
+    let j: number = 0;
+    while (j < nList.length - 1) {
+      if (nList[j] + 1 == nList[j + 1]) {
+        j++;
         continue;
       } else {
         counter = counter + 1;
       }
+      j++;
     }
-    if (counter != 0) {
-      return true;
-    } else {
+
+    if (counter !== 0) {
       return false;
+    } else {
+      return true;
     }
   }
-  if (onlyZero(numList)) {
-    return 2;
-  }
-  if (allEqual(numList)) {
-    return 2;
-  }
+
   if (goingUP(numList)) {
     return 2;
+  } else if (allEqual(numList)) {
+    return 2;
+  } else if (onlyZero(numList)) {
+    return 2;
+  } else {
+    return 0;
   }
 }
 
