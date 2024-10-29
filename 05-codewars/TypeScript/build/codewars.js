@@ -1,31 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.productFib = void 0;
-const productFib = (prod) => {
-    function Fibo(num) {
-        let a = 1;
-        let b = 0;
-        let c = 0;
-        for (let i = 0; i < num; i++) {
-            c = a + b;
-            a = b;
-            b = c;
-        }
-        return c;
-    }
-    let n = 0;
-    while (true) {
-        if (Fibo(n) * Fibo(n + 1) === prod) {
-            return [Fibo(n), Fibo(n + 1), true];
-        }
-        else if (Fibo(n) * Fibo(n + 1) > prod) {
-            return [Fibo(n), Fibo(n + 1), false];
-        }
-        else {
-            n++;
-            continue;
+exports.persistence = persistence;
+function persistence(num) {
+    let strnum = num.toString();
+    let array = Array.from(num.toString()).map(Number);
+    function step(list) {
+        let result = 0;
+        for (let i = 1; i < array.length; i++) {
+            let numberr = array[i - 1] * array[i];
+            result = result + numberr;
+            array = Array.from(result.toString()).map(Number);
         }
     }
-};
-exports.productFib = productFib;
-console.log((0, exports.productFib)(714));
+    let counter = 0;
+    while (array.length > 1) {
+        step(array);
+        counter++;
+    }
+    return counter;
+}
+console.log(persistence(123345));
