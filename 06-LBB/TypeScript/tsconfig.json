@@ -1,0 +1,17 @@
+
+
+{   
+    "include": ["./src"],
+    "compilerOptions": {
+        "outDir": "./build",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+     
+      
+    }
+}
+ 
