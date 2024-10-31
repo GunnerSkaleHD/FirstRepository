@@ -1,9 +1,7 @@
 import request from "request";
 import { XMLParser, XMLBuilder, XMLValidator } from "fast-xml-parser";
 
-const alwaysArray = ["timetable.s"];
-
-const options = {
+const trainOptions = {
   method: "GET",
   url: "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/plan/08000235/241031/14",
   headers: {
@@ -13,33 +11,30 @@ const options = {
   },
 };
 
-const XMLoptions = {
+const options = {
   ignoreAttributes: false,
   attributeNamePrefix: "@_",
   allowBooleanAttributes: true,
   ignoreDeclaration: true,
   isArray: (name, jpath, isLeafNode, isAttribute) => jpath === "timetable.s",
 };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-  const parser = new XMLParser(XMLoptions);
-  const output = parser.parse(body);
-  console.log(body);
-  let trainList = [];
-  for (let i of output.timetable.s) {
-    //console.log(i);
-    if (
-      i.tl["@_c"] === "S" &&
-      //i.dp["@_l"] === "5" &&
-      i.dp["@_ppth"].includes("Stuttgart")
-    ) {
-      let time = i.dp["@_pt"].substr(i.dp["@_pt"].length - 4);
-      trainList.push(time + " " + i.tl["@_c"] + i.dp["@_l"]);
+async function getTrainData(requestOptions, XmlOptions) {
+  request(requestOptions, function (error, response, body) {
+    if (error) throw new Error(error);
+    const parser = new XMLParser(XmlOptions);
+    const output = parser.parse(body);
+    let trainList = [];
+    for (let i of output.timetable.s) {
+      if (i.tl["@_c"] === "S" && i.dp["@_ppth"].includes("Stuttgart")) {
+        let time = i.dp["@_pt"].substr(i.dp["@_pt"].length - 4);
+        let train = i.tl["@_c"] + i.dp["@_l"];
+        trainList.push(time + " " + train);
+      }
     }
-  }
-  //console.log(trainList.sort());
-  resultFirstHalf = "Die nächsten S-Bahnen richtung Stuttgart sind:"
-  resultSecondHalf = ""
-  for (let i of trainList)
-});
+    trainList.sort();
+    let resultFirstHalf = "Die nächsten S-Bahnen richtung Stuttgart sind: \n";
+    let resultSecondHalf = trainList.join("\n");
+    console.log(resultFirstHalf + resultSecondHalf);
+  });
+}
+getTrainData(trainOptions, options);
