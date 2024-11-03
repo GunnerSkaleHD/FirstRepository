@@ -28,10 +28,10 @@ export async function getTrainData() {
     const body = await response.text();
     const parser = new XMLParser(options);
     const output = parser.parse(body);
-
+    // console.log(body);
     let trainList = [];
     for (let i of output.timetable.s) {
-      if (i.tl["@_c"] === "S" && i.dp["@_ppth"].includes("Stuttgart")) {
+      if (i.tl["@_c"] === "S" && i.dp["@_ppth"].includes("Stuttgart Hbf")) {
         let time = i.dp["@_pt"].substr(i.dp["@_pt"].length - 4);
         let train = i.tl["@_c"] + i.dp["@_l"];
         trainList.push(time + " " + train);
