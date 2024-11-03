@@ -33,6 +33,7 @@ interface TimetableEntry {
   dp: {
     "@_ppth": string;
     "@_pt": string;
+    "@_l": string;
   };
 }
 
