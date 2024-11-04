@@ -8,12 +8,12 @@ export function isInteresting(n: number, awesomePhrases: number[]) {
   if (awesomePhrases.includes(n + 2)) {
     return 1;
   }
-  if (n === 1221) {
-    return 0;
-  }
-  if (n === 1235) {
-    return 1;
-  }
+  // if (n === 1221) {
+  //   return 0;
+  // }
+  // if (n === 1235) {
+  //   return 1;
+  // }
   function listMaker(n: number) {
     let numStr: string = n.toString();
     let strList: string[] = numStr.split("");
