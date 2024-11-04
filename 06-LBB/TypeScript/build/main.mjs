@@ -6,7 +6,7 @@ export async function getTrainData() {
         headers: {
             "DB-Client-Id": "6d8990a55f6ad319e4bcc664d2a26be8",
             "DB-Api-Key": "23d8111fab821ddb070796f82ab3516e",
-            accept: "application/json",
+            accept: "application/xml",
         },
     };
     const options = {
@@ -16,11 +16,27 @@ export async function getTrainData() {
         ignoreDeclaration: true,
         isArray: (name, jpath, isLeafNode, isAttribute) => jpath === "timetable.s",
     };
-    const placholder = "08000235";
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1;
+    let day = new Date().getDate();
+    let hour = new Date().getHours();
+    let zero = "";
+    if (month.toString().length === 1) {
+        zero = "0";
+    }
+    else if (day.toString().length) {
+        zero = "0";
+    }
+    const fetchLink = "https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/plan/08000235/" +
+        year.toString()[2] +
+        year.toString()[3] +
+        month.toString() +
+        zero +
+        day.toString() +
+        "/" +
+        hour.toString();
     try {
-        const response = await fetch("https://apis.deutschebahn.com/db-api-marketplace/apis/timetables/v1/plan/" +
-            placholder +
-            "/241104/11", APIOptions);
+        const response = await fetch(fetchLink, APIOptions);
         if (!response.ok)
             throw new Error(`HTTP error! status: ${response.status}`);
         const body = await response.text();
