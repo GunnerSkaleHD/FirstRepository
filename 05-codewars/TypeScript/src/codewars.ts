@@ -1,3 +1,5 @@
+// Catching Car Mileage Numbers
+
 export function isInteresting(n: number, awesomePhrases: number[]) {
   if (awesomePhrases.includes(n)) {
     return 2;
