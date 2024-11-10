@@ -7,10 +7,10 @@ import ReactDOM from "react-dom";
 import { PorscheDesignSystemProvider } from "@porsche-design-system/components-react";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <PorscheDesignSystemProvider>
-      <App />
-    </PorscheDesignSystemProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <React.StrictMode>
+        <PorscheDesignSystemProvider>
+            <App />
+        </PorscheDesignSystemProvider>
+    </React.StrictMode>,
+    document.getElementById("root")
 );
