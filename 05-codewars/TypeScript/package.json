@@ -1,8 +1,12 @@
 {
-  "devDependencies": {
-    "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "TypeScript": "npm:typescript@^5.6.3"
-  }
+    "devDependencies": {
+        "tsx": "^4.19.2",
+        "typescript": "^5.6.3"
+    },
+    "dependencies": {
+        "TypeScript": "npm:typescript@^5.6.3"
+    },
+    "scripts": {
+        "start": "tsx ./src/cw.ts"
+    }
 }
