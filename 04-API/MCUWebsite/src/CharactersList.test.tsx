@@ -170,7 +170,7 @@ describe("Returns 5 defined Characters", () => {
         ];
         const { getByTestId } = render(
             <PorscheDesignSystemProvider>
-                <CharactersList characters={data} />
+                <CharactersList />
             </PorscheDesignSystemProvider>
         );
         const characterName = getByTestId("characterName0").textContent;
