@@ -7,6 +7,6 @@
         "TypeScript": "npm:typescript@^5.6.3"
     },
     "scripts": {
-        "start": "npx tsx ./src/cw.ts"
+        "start": "npx tsx ./src/codewars.ts"
     }
 }
