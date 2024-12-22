@@ -7,7 +7,7 @@ BASE_URL = "https://localhost:4002/v1/api"
 
 # Your conid and parameters for historical data
 CONID = "713770975"  # Replace with your conid
-ENDPOINT = f"{BASE_URL}/iserver/marketdata/history"
+ENDPOINT = f"https://api.ibkr.com/v1/api/hmds/history"
 
 # Historical data parameters
 params = {
